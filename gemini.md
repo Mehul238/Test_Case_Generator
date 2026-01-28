@@ -32,7 +32,10 @@
 - **Deterministic Output**: Use specific prompt templates to ensure consistent test case formats.
 - **User Feedback**: Immediate visual feedback in UI when generation is in progress.
 
-## Architectural Invariants
-- **Backend**: Python (Flask) acting as the API layer.
-- **Frontend**: HTML/JS (Vanilla) for the Chat Interface.
-- **Integration**: Ollama Python Client for local model inference.
+## Maintenance Log
+- **Version 1.0.0**: Initial Release
+    - Local LLM Integration (Ollama)
+    - Session Management (Local Storage)
+    - Nebula Theme UI
+    - Test Case Table Formatting
+    - GitHub Repo Linked: `https://github.com/Mehul238/Test_Case_Generator.git`
