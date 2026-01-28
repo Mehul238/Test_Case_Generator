@@ -1,0 +1,240 @@
+/* ... existing styles ... */
+
+/* Robot Styles */
+.robot-wrapper {
+    position: relative;
+    width: 120px;
+    height: 160px;
+    margin: 0 auto 2rem;
+    cursor: pointer;
+    /* Interactive cursor */
+}
+
+.robot {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    animation: floatRobot 3s ease-in-out infinite;
+    z-index: 2;
+}
+
+.robot:hover .head {
+    transform: rotate(5deg);
+}
+
+.robot:hover .arm.right {
+    transform: rotate(-150deg);
+    /* Wave */
+}
+
+/* Head */
+.head {
+    width: 80px;
+    height: 60px;
+    background: #e0e0e0;
+    border-radius: 15px;
+    position: absolute;
+    left: 20px;
+    top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset -5px -5px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    z-index: 5;
+}
+
+.eyes {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.eye {
+    width: 12px;
+    height: 12px;
+    background: #2c313c;
+    border-radius: 50%;
+    animation: blink 4s infinite;
+}
+
+.mouth {
+    width: 20px;
+    height: 4px;
+    background: #2c313c;
+    border-radius: 2px;
+    position: absolute;
+    bottom: 12px;
+}
+
+/* Antenna */
+.antenna {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stick {
+    width: 4px;
+    height: 20px;
+    background: #a770ef;
+    margin-top: -5px;
+    /* adjust connection */
+}
+
+.ball {
+    width: 12px;
+    height: 12px;
+    background: #cf8bf3;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #cf8bf3;
+    animation: pulseAntenna 2s infinite;
+    z-index: 2;
+}
+
+/* Body */
+.body {
+    width: 60px;
+    height: 50px;
+    background: #a770ef;
+    border-radius: 10px 10px 25px 25px;
+    position: absolute;
+    left: 30px;
+    top: 95px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(167, 112, 239, 0.4);
+}
+
+.chest-screen {
+    width: 40px;
+    height: 25px;
+    background: #2c313c;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.heartbeat {
+    width: 20px;
+    height: 2px;
+    background: #98c379;
+    box-shadow: 0 0 5px #98c379;
+    animation: heartbeat 1s infinite linear;
+}
+
+/* Arms */
+.arm {
+    width: 12px;
+    height: 40px;
+    background: #e0e0e0;
+    border-radius: 6px;
+    position: absolute;
+    top: 98px;
+    transform-origin: top center;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.arm.left {
+    left: 10px;
+    transform: rotate(20deg);
+}
+
+.arm.right {
+    right: 10px;
+    transform: rotate(-20deg);
+}
+
+/* Shadow */
+.shadow {
+    width: 60px;
+    height: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    position: absolute;
+    bottom: -15px;
+    left: 30px;
+    animation: shadowScale 3s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes floatRobot {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes shadowScale {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scale(0.8);
+        opacity: 0.2;
+    }
+}
+
+@keyframes blink {
+
+    0%,
+    96%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    98% {
+        transform: scaleY(0.1);
+    }
+}
+
+@keyframes pulseAntenna {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 5px #cf8bf3;
+    }
+
+    50% {
+        transform: scale(1.2);
+        box-shadow: 0 0 15px #cf8bf3;
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 5px #cf8bf3;
+    }
+}
+
+@keyframes heartbeat {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+
+    50% {
+        width: 30px;
+        opacity: 1;
+    }
+
+    100% {
+        width: 30px;
+        opacity: 0;
+        transform: translateX(10px);
+    }
+}
